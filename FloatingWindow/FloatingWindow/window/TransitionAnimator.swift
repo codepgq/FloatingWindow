@@ -47,7 +47,6 @@ class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             toView = transitionContext.viewController(forKey: .to)?.view
         }
         if isPush {
-            
             containerView.addSubview(toView!)
             animationView = toView
             animationView?.layer.cornerRadius = 20
@@ -76,7 +75,9 @@ class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             blackView.backgroundColor = .black
             containerView.insertSubview(blackView, belowSubview: fromView!)
             
-            animationView = fromView
+            animationView = fromView?.snapshotView(afterScreenUpdates: false)
+            fromView?.alpha = 0
+            containerView.addSubview(animationView!)
             
             animationView?.layer.cornerRadius = 20
             animationView?.clipsToBounds = true
@@ -89,6 +90,8 @@ class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                     animationView?.layer.cornerRadius = 0
                     animationView?.clipsToBounds = false
                 })
+                fromView?.alpha = 1
+                animationView?.removeFromSuperview()
                 blackView.removeFromSuperview()
                 transitionContext.completeTransition(true)
             }
