@@ -11,7 +11,7 @@ import WebKit
 
 class FloatingWindowController: UIViewController {
     
-    var url = "https://www.jianshu.com"
+    var url = "https://www.jianshu.com/p/7cbcebb2dcbc"
     
     override func viewDidLoad() {
         super.viewDidLoad()

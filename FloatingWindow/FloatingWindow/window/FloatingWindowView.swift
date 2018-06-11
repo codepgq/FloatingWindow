@@ -65,11 +65,6 @@ extension FloatingWindowView {
             hideWindowView.frame.origin = CGPoint(x: UIScreen.main.bounds.width - hideWindowView.frame.width, y: UIScreen.main.bounds.height - hideWindowView.frame.height)
             hideWindowView.moreRedBackground(isHiddenBtn)
         }
-        
-        
-        if isHiddenBtn {
-            
-        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
